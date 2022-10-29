@@ -1,14 +1,19 @@
+// eslint-disable-next-line no-undef
 module.exports = {
 	"env": {
 		"browser": true,
-		"es2021": true
+		"es2021": true,
+		"node": true
 	},
 	"extends": [
 		"eslint:recommended",
 		"plugin:react/recommended",
 		"plugin:@typescript-eslint/recommended"
 	],
-	"overrides": [
+	"overrides": [{
+		files: ["**/*.test.js"],
+		extends: ["plugin:jest/recommended", "plugin:jest/style"],
+	},
 	],
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
@@ -20,6 +25,7 @@ module.exports = {
 		"@typescript-eslint"
 	],
 	"rules": {
+		"@typescript-eslint/no-var-requires": "off",
 		"indent": [
 			"error",
 			"tab"
